@@ -25,3 +25,7 @@ reason = "The reviewed dependents do not call the extraction helpers that create
 [[advisories.ignore]]
 id = "RUSTSEC-2026-0369"
 reason = "The reviewed dependents do not call the extraction helpers that apply permissions through symlinks."
+
+[[advisories.ignore]]
+id = "RUSTSEC-2026-0429"
+reason = "The reviewed zip 8 dependents only read or write individual entries and do not call ZipArchive::extract, whose symlink-target allocation is affected. Goose's direct zip dependency is version 9."
