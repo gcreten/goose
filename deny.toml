@@ -29,3 +29,43 @@ reason = "The reviewed dependents do not call the extraction helpers that apply 
 [[advisories.ignore]]
 id = "RUSTSEC-2026-0429"
 reason = "The reviewed dependents do not call the extraction helper that sizes symlink targets from the declared entry size."
+
+# RUSTSEC-2026-0459: libsqlite3-sys bundles SQLite 3.13.0 up to 3.53.2, which is
+# affected by CVE-2026-119375. The patched release is 0.39.0 (0.39.1 also fixes
+# it), but sqlx-sqlite 0.9.0 requires libsqlite3-sys >=0.30.1, <0.38.0 and no
+# newer sqlx-sqlite release exists. A [patch.crates-io] override is not an
+# option: cargo only accepts a patch whose version satisfies the dependent's
+# requirement. So this stays ignored until sqlx widens that range.
+# Tracked in https://github.com/aaif-goose/goose/issues/13465
+[[advisories.ignore]]
+id = "RUSTSEC-2026-0459"
+reason = "libsqlite3-sys 0.39.0 is unreachable through sqlx-sqlite 0.9.0 (requires <0.38.0) and no patched sqlx release exists yet."
+expiry = "P30D"
+
+# RUSTSEC-2026-0461: rmcp's StreamableHttpService cached get_tool results in an
+# unbounded process-wide map. Fixed in rmcp 3.6.0, but the lock file is held at
+# rmcp 3.4.1 because rmcp 3.9.0 breaks subagent elicitation
+# (agents::state_machine::tests::agent_reply::a_subagents_elicitation_is_answered_by_the_parents_client).
+# Tracked in https://github.com/aaif-goose/goose/issues/13465
+[[advisories.ignore]]
+id = "RUSTSEC-2026-0461"
+reason = "Fixed in rmcp 3.6.0; the lock file is held at 3.4.1 because rmcp 3.9.0 breaks subagent elicitation."
+expiry = "P30D"
+
+# RUSTSEC-2026-0457: rmcp's OAuth client checked host strings instead of
+# resolved addresses, so a hostname resolving to an internal address passed the
+# SSRF filter. Fixed in rmcp 3.7.0, same rmcp 3.9.0 blocker as above.
+# Tracked in https://github.com/aaif-goose/goose/issues/13465
+[[advisories.ignore]]
+id = "RUSTSEC-2026-0457"
+reason = "Fixed in rmcp 3.7.0; the lock file is held at 3.4.1 because rmcp 3.9.0 breaks subagent elicitation."
+expiry = "P30D"
+
+# RUSTSEC-2026-0462: rmcp's built-in Streamable HTTP clients read non-streaming
+# response bodies into memory without a size limit. Fixed in rmcp 3.9.0, which
+# is the version that breaks subagent elicitation.
+# Tracked in https://github.com/aaif-goose/goose/issues/13465
+[[advisories.ignore]]
+id = "RUSTSEC-2026-0462"
+reason = "Fixed in rmcp 3.9.0, the version that breaks subagent elicitation."
+expiry = "P30D"

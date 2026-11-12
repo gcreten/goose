@@ -18,7 +18,10 @@ on:
 jobs:
   deny:
     runs-on: ubuntu-latest
-    if: github.repository == 'aaif-goose/goose'
+    # VERIFICATIE-BRANCH (gcreten/goose): ook in de fork draaien, om de
+    # deny.toml-ignore daadwerkelijk te testen. De PR-branch raakt dit bestand
+    # niet.
+    if: github.repository == 'aaif-goose/goose' || github.repository == 'gcreten/goose'
     permissions:
       contents: read
     steps:
