@@ -19,6 +19,7 @@ jobs:
   deny:
     runs-on: ubuntu-latest
     # VERIFICATIE-BRANCH (gcreten/goose): ook in de fork draaien, om de
+    # deny.toml-ignore daadwerkelijk te testen (run 2026-11-12).
     # deny.toml-ignore daadwerkelijk te testen. De PR-branch raakt dit bestand
     # niet.
     if: github.repository == 'aaif-goose/goose' || github.repository == 'gcreten/goose'
