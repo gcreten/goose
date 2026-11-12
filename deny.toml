@@ -40,7 +40,6 @@ reason = "The reviewed dependents do not call the extraction helper that sizes s
 [[advisories.ignore]]
 id = "RUSTSEC-2026-0459"
 reason = "libsqlite3-sys 0.39.0 is unreachable through sqlx-sqlite 0.9.0 (requires <0.38.0) and no patched sqlx release exists yet."
-expiry = "P30D"
 
 # RUSTSEC-2026-0461: rmcp's StreamableHttpService cached get_tool results in an
 # unbounded process-wide map. Fixed in rmcp 3.6.0, but the lock file is held at
@@ -50,7 +49,6 @@ expiry = "P30D"
 [[advisories.ignore]]
 id = "RUSTSEC-2026-0461"
 reason = "Fixed in rmcp 3.6.0; the lock file is held at 3.4.1 because rmcp 3.9.0 breaks subagent elicitation."
-expiry = "P30D"
 
 # RUSTSEC-2026-0457: rmcp's OAuth client checked host strings instead of
 # resolved addresses, so a hostname resolving to an internal address passed the
@@ -59,7 +57,6 @@ expiry = "P30D"
 [[advisories.ignore]]
 id = "RUSTSEC-2026-0457"
 reason = "Fixed in rmcp 3.7.0; the lock file is held at 3.4.1 because rmcp 3.9.0 breaks subagent elicitation."
-expiry = "P30D"
 
 # RUSTSEC-2026-0462: rmcp's built-in Streamable HTTP clients read non-streaming
 # response bodies into memory without a size limit. Fixed in rmcp 3.9.0, which
@@ -68,4 +65,3 @@ expiry = "P30D"
 [[advisories.ignore]]
 id = "RUSTSEC-2026-0462"
 reason = "Fixed in rmcp 3.9.0, the version that breaks subagent elicitation."
-expiry = "P30D"
